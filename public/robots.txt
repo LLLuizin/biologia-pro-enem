@@ -1,0 +1,17 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# Host
+Host: https://biologiaenem.com
+
+# Sitemaps
+Sitemap: https://biologiaenem.com/sitemap.xml

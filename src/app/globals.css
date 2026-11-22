@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+@layer base {
+  :root {
+    --background: 250 250 247;
+    --foreground: 36 34 28;
+    --muted: 237 236 231;
+    --muted-foreground: 94 89 80;
+    --border: 217 213 206;
+    --ring: 97 128 85;
+  }
+
+  * {
+    @apply border-papel-300;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-papel-50 text-tinta-900 font-body antialiased;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    @apply bg-verde-300/50 text-tinta-900;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-papel-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-papel-400 rounded-full hover:bg-papel-500;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-18 sm:py-22 lg:py-26;
+  }
+
+  .section-sm {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current after:scale-x-0 after:origin-bottom-right after:transition-transform hover:after:scale-x-100 hover:after:origin-bottom-left;
+  }
+
+  .card-base {
+    @apply bg-papel-50/80 backdrop-blur-sm border border-papel-200 rounded-organic shadow-soft transition-all duration-300 hover:shadow-medium hover:-translate-y-1;
+  }
+
+  .card-hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-verde-700 text-papel-50 font-medium rounded-organic transition-all duration-200 hover:bg-verde-800 hover:shadow-medium active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-verde-500 focus:ring-offset-2 focus:ring-offset-papel-50;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent text-verde-700 font-medium rounded-organic border-2 border-verde-700 transition-all duration-200 hover:bg-verde-700 hover:text-papel-50 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-verde-500 focus:ring-offset-2 focus:ring-offset-papel-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-tinta-700 font-medium rounded-organic transition-all duration-200 hover:bg-papel-200 hover:text-tinta-900 active:scale-[0.98];
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full;
+  }
+
+  .badge-verde { @apply bg-verde-100 text-verde-800; }
+  .badge-musgo { @apply bg-musgo-100 text-musgo-800; }
+  .badge-terra { @apply bg-terra-100 text-terra-800; }
+  .badge-argila { @apply bg-argila-100 text-argila-800; }
+  .badge-flor { @apply bg-flor-100 text-flor-800; }
+  .badge-ceu { @apply bg-ceu-100 text-ceu-800; }
+
+  .prose-custom {
+    @apply prose prose-tinta max-w-none;
+    --tw-prose-body: theme('colors.tinta.800');
+    --tw-prose-headings: theme('colors.tinta.900');
+    --tw-prose-lead: theme('colors.tinta.700');
+    --tw-prose-links: theme('colors.verde.700');
+    --tw-prose-bold: theme('colors.tinta.900');
+    --tw-prose-counters: theme('colors.tinta.500');
+    --tw-prose-bullets: theme('colors.papel.400');
+    --tw-prose-hr: theme('colors.papel.300');
+    --tw-prose-quotes: theme('colors.tinta.900');
+    --tw-prose-quote-borders: theme('colors.verde.400');
+    --tw-prose-code: theme('colors.argila.700');
+    --tw-prose-pre-code: theme('colors.papel.100');
+    --tw-prose-pre-bg: theme('colors.tinta.950');
+    --tw-prose-th-borders: theme('colors.papel.300');
+    --tw-prose-td-borders: theme('colors.papel-200');
+  }
+
+  .prose-custom h1 { @apply text-display-sm font-display font-semibold tracking-tight mb-6 mt-12 first:mt-0; }
+  .prose-custom h2 { @apply text-display-md font-display font-semibold tracking-tight mb-5 mt-14 first:mt-0 pb-2 border-b border-papel-200; }
+  .prose-custom h3 { @apply text-display-sm font-display font-medium tracking-tight mb-4 mt-10 first:mt-0; }
+  .prose-custom p { @apply text-body leading-relaxed mb-6; }
+  .prose-custom ul { @apply mb-6 ml-6 list-disc space-y-3; }
+  .prose-custom ol { @apply mb-6 ml-6 list-decimal space-y-3; }
+  .prose-custom li { @apply text-body leading-relaxed; }
+  .prose-custom a { @apply link-underline no-underline font-medium; }
+  .prose-custom blockquote { @apply border-l-4 pl-6 italic my-8 text-tinta-700; }
+  .prose-custom code { @apply bg-papel-200 px-1.5 py-0.5 rounded text-sm font-mono; }
+  .prose-custom pre { @apply rounded-organic-lg overflow-x-auto mb-6; }
+  .prose-custom pre code { @apply bg-transparent p-0 text-sm; }
+  .prose-custom img { @apply rounded-organic-lg shadow-soft my-8; }
+  .prose-custom table { @apply w-full mb-6; }
+  .prose-custom th { @apply text-left p-4 font-medium bg-papel-100; }
+  .prose-custom td { @apply p-4 border-t border-papel-200; }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: fadeIn 0.6s ease-out forwards, slideUp 0.6s ease-out forwards;
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-verde-700 to-musgo-600;
+  }
+
+  .text-gradient-terra {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-argila-600 to-terra-700;
+  }
+
+  .bg-gradient-mesh {
+    background: linear-gradient(135deg, theme('colors.verde.50') 0%, theme('colors.musgo.50') 50%, theme('colors.terra.50') 100%);
+  }
+
+  .clip-path-organic {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; }
+  .card-base { box-shadow: none !important; border: 1px solid #e5e5e5 !important; }
+}
